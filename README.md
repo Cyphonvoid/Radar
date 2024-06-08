@@ -56,5 +56,5 @@ Also you can integrate your program with CustomUI as well in order to make thing
 
 navigate to `http://webserver/` to verify the webserver is running smoothly. It should redirect to '/$update.htm' automatically. You can also check `http//:webserver/radarStatus` to see what it displays, this is route that is being used internally within python client. 
 
-Now you can see, everytime radar detects motion it will light up red led at pin 13 and register motion detection. Now you can ask your A.I assistant about real-time insights into situations. Place this radar setup anywhere in your room wherever you think it needs to be monitored.
+Now you can see, everytime radar detects motion it will light up red led at pin 13, register motion detection through 180 degree sweeping motion with sonar. Now you can ask your A.I assistant about real-time insights into situations. Place this radar setup anywhere in your room wherever you think it needs to be monitored.
 

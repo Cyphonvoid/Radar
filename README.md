@@ -54,7 +54,7 @@ Now, after following the schematic diagram and assembling all the parts do the f
 Also you can integrate your program with CustomUI as well in order to make things more appealing.
     - Now, connect the hardware to a 7v supply by making there's enough current for every component. 7volts 4000mili amperes charger will work great as well. The servo will start sweeping as soon as hardware system is all connnected and turned on along with nodemcu webserver.
 
-    navigate to `http://webserver/` to verify the webserver is running smoothly. It should redirect to '/$update.htm' automatically. You can also check `http//:webserver/radarStatus` to see what it displays, this is route that is being used internally within python client. 
+navigate to `http://webserver/` to verify the webserver is running smoothly. It should redirect to '/$update.htm' automatically. You can also check `http//:webserver/radarStatus` to see what it displays, this is route that is being used internally within python client. 
 
-    Now you can see, everytime radar detects motion it will light up red led at pin 13 and register motion detection. Now you can ask your A.I assistant about real-time insights into situations. Place this radar setup anywhere in your room wherever you think it needs to be monitored.
+Now you can see, everytime radar detects motion it will light up red led at pin 13 and register motion detection. Now you can ask your A.I assistant about real-time insights into situations. Place this radar setup anywhere in your room wherever you think it needs to be monitored.
 

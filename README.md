@@ -1,7 +1,6 @@
 
 # Radar Project
-
-Radar project is an active online surveillance system designed for in house motion detection equiped with HC SR04 40Khz high frequency ultrasonic sensor, MG 90S 9g Micro Servo motor and NodeMCU ESP8266 2.4ghz WiFi microcontroller. System self hosts Webserver using NodeMCU to provide RESTful Api calls to provide real-time data. System is fully integrated with real-time AI assistant support for efficient data interpretation and processing providing real-time insights into situations within houses.
+Radar project is an active online A.I surveillance system designed for in house motion detection equiped with HC SR04 40Khz high frequency ultrasonic sensor, MG 90S 9g Micro Servo motor and NodeMCU ESP8266 2.4ghz WiFi microcontroller. System self hosts Webserver using NodeMCU to provide RESTful Api calls to provide real-time data. System is fully integrated with real-time AI assistant support for efficient data interpretation and processing providing real-time insights into situations within houses.
 
 # Parts Used
 

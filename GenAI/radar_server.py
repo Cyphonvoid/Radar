@@ -32,7 +32,7 @@ class RadarServer():
             else:
                 self._response = ""
             time.sleep(10)
-
+    
     def store_responses(self):
         #Store the responses into mongoDB collection defined within OpenVisualAI Api
         while(True):

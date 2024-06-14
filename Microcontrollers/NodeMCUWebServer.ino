@@ -1,3 +1,4 @@
+
 // @file WebServer.ino
 // @brief Example implementation using the ESP8266 WebServer.
 //
@@ -31,6 +32,7 @@ ESP8266WebServer server(80);
 
 const char* ssid = "yashema494";
 const char* passPhrase = "e494@skyhr";
+//Serial Channel object to selectively use ports
 
 
 // ===== Simple functions used to answer simple GET requests =====
@@ -40,8 +42,6 @@ const char* passPhrase = "e494@skyhr";
 void handleRedirect() {
   TRACE("Redirect...");
   String url = "/index.htm";
-
-  if (!LittleFS.exists(url)) { url = "/$update.htm"; }
 
   server.sendHeader("Location", url, true);
   server.send(302);
@@ -53,27 +53,40 @@ void handleRedirect() {
 void radarStatus(){
   //Read the data at Serial1 RX, TX pins on arduino Mega
   //Function will run as soon as request is made, it will read serial value and send it
-  int value = Serial1.read();
-  String str = String(value);
+  delay(40);
+  int len = Serial.available();
+  String str = "";
+  for(int i = 0; i < len; i++){
+    char c = Serial.read();
+    
+    if((c >= '0' && c <= '9') || c == '-' || c == '+'){
+        if(str.length() == 2)break;
+        str+=c;
+    }
+  }
+  if(str.length() == 0){str = "None";}
   Serial.print("Got data from arduino uno ");
   Serial.println(str);
   server.send(200, "text/javascript; charset=utf-8", str); 
 }
 
 void establishContact() {
-  while (Serial1.available() <= 0) {
+  while (Serial.available() <= 0) {
     Serial.println("0,0,0");  // send an initial string
     delay(300);
   }
 }
+
+
 void setup(void) {
   delay(3000);  // wait for serial monitor to start completely.
 
   // Use Serial port for some trace information from the example
   Serial.begin(115200);
   Serial.setDebugOutput(false);
+
   //establish contact with arduino uno
-  establishContact();
+  //establishContact();
 
   pinMode(D3, INPUT);
   TRACE("Starting WebServer for radar...\n");
@@ -120,9 +133,6 @@ void setup(void) {
   // enable ETAG header in webserver results from serveStatic handler
   server.enableETag(true);
 
-  // serve all static files
-  server.serveStatic("/", LittleFS, "/");
-
   // handle cases when file is not found
   server.onNotFound([]() {
     // standard not found in browser.
@@ -137,4 +147,6 @@ void setup(void) {
 // run the server...
 void loop(void) {
   server.handleClient();
+  //Serial.println(Serial1.read());
 }  // loop()
+

@@ -21,7 +21,7 @@ class RadarServer():
             if(response.status_code == 200):
                 content = response.json()
 
-                #Create a document to store information about detectino only if object has been detected.
+                #Create a document to store information about detection only if object has been detected.
                 if(content['detected'] == True):
                     current_time = datetime.datetime.now()
                     content = "[AI Radar] Motion detection detected object at " + content['distance'] + " cm "
@@ -42,7 +42,7 @@ class RadarServer():
                 self._response_stack.pop(0)
             
             time.sleep(10)
-
+    
     def start_stack_thread(self):
         #Start the thread to process response buffer to upload the documents directly to AI Vector Database
         self._response_stack_thread = threading.Thread()
